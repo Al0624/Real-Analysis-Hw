@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Real Analysis Submission 5}
+\author{ANDY LI}
+\date{February 2023}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+$$\sum_{n=2}^{\infty} \frac{1}{n(logn)^p}$$
+\\We notice that the term in the sum is non-negative monotonically decreasing for n = 2 and onward.
+\\By the Cauchy Condensation Test, if we show that $2^nf(2^n)$ diverges then $f(n)$ diverges as well.
+\\For p = 1,
+$$2^nf(2^n) = \frac{2^n}{2^nlog(2^n)} = \frac{1}{nlog2}$$ Which diverges because it is a multiple of the harmonic series which diverges.
+\\Hence, for p = 1, the series diverges.
+\\
+\\Now we check for $p > 1$.
+\\We take the series to be $$\sum_{n=2}^{\infty} \frac{1}{n(logn)^2}$$
+\\Once again, by using the Cauchy Condensation Test, we check to see whether $$\sum_{n=2}^{\infty} \frac{2^n}{2^n(log2^n)^2} = \sum_{n=2}^{\infty} \frac{1}{n^2log2}$$ converges or diverges.
+\\We know from previous examples that $\sum\frac{1}{n^2}$ is a convergent series. Thus, $\sum\frac{1}{n^2log2}$ converges as well.
+\\Therefore, $$\sum_{n=2}^{\infty} \frac{1}{n(logn)^2}$$ converges, and for any power $p > 1$ the series will converge. This is because as p increases, the term gets smaller. Hence, $\sum_{n=2}^{\infty} \frac{1}{n(logn)^2}$ converges, and any series smaller will also converge.
+
+\section*{Problem 3}
+ a) The intersection of the Ternary Cantor set is non-empty.
+ \\Let $E_0 = [0, 1]$.
+ \\For each iteration n, and $k := [0, ... ,3^n - 1] $, the middle third is removed. The part removed can be denoted as the open interval: $$(\frac{3k+1}{3^{n+1}}, \frac{3k+2}{3^{n+1}})$$ which leaves the closed interval $$[\frac{3k}{3^{n+1}}, \frac{3k+3}{3^{n+1}}]$$
+ \\We notice that with each iteration n, the previous n-1 iteration's closed end points are included as endpoints in the nth iteration.
+ \\Hence, $$\cap_{n=0}^{\infty} E_n$$ is non-empty because it contains endpoints of the previous iteration. For all n, $[0, 1]$ is included in the intersection.
+ \\
+ \\b) From the fact above that with each iteration, an open interval is removed from each closed interval, we know that each iteration is made up of closed intervals. Hence, the intersection of closed intervals is also closed.
+ \\To show that C does not have any isolated points, we have to show that every point in C is a limit point.
+ \\Let $\epsilon > 0$ and choose n s.t $\frac{1}{3^n} < \epsilon$ where $\frac{1}{3^n}$ is the length of each closed interval.
+ \\Let $x \in C$ be a point in any one of the closed intervals of C. Then there is a closed interval endpoint y s.t $$|x-y| \leq \frac{1}{3^n} < \epsilon$$ Where $x \neq y$
+ \\Hence, $$|x-y| < \epsilon$$ There are no isolated points in C.
+ 
+
+ \section*{Problem 5}
+ a) $\Rightarrow$ Let E be a closed set. The definition of closure: $\overline{E} = E \cup E'$
+ \\From the definition, a closed set contains all of its limit points. 
+ \\Hence $E \cup E' = E \Rightarrow \overline{E} = E$
+ \\$\Leftarrow$ Let $\overline{E} = E \Rightarrow E = E \cup E'$. This means that $E' \subseteq E$ which means that E contains all of its limit points. Hence, by definition E is a closed set.
+ \\Therefore E is a closed set if and only if $E = \overline{E}$
+\\
+ \\$\Rightarrow$ Let E be an open set. By definition, $\forall x \in E$ x is an interior point.
+ \\This means that $E \subseteq E^\circ$
+ \\And by definition $E^\circ$ is always open, hence if E is an open set, $E^\circ \subseteq E$
+ \\Therefore $E = E^\circ$ when E is an open set.
+ \\$\Leftarrow$ Let $E = E^\circ$, by definition, interior sets are open. Hence, if $E = E^\circ$ which is open, E is an open set.
+ \\Therefore E is an open set if and only if $E = E^\circ$
+ \\
+ \\b) Prove $\overline{E}^c = E^c^\circ$
+ \\$\Rightarrow$ $\overline{E}^c$ is open because the closure is always closed. The complement of a closed set is open. By definition of closure, $E \subset \overline{E}$.
+ \\Additionally, by definition of internal set, $E^\circ \subset E$. If we take the complement of each term, we get $\overline{E}^c \subset E^c \subset E^c^\circ$
+ \\Hence $\overline{E}^c \subset E^c^\circ$
+ \\$\Leftarrow$ By definition of internal set, $E^c^\circ \subset E^c$
+ \\There exists an open set F such that $x \in F \subset E^c \Rightarrow x \not \in F^c \supset E$
+ \\We know $F^c$ is closed because F is open, and that $F^c \supset E$
+ \\From the definition of closure, we then know that $x \not \in \overline{E} \Rightarrow x \in \overline{E}^c$
+ \\Therefore $x \in E^c^\circ \Rightarrow x \in \overline{E}^c$
+ \\Hence, $E^c^\circ \subset \overline{E}^c$
+ \\Hence, both ways are proven so $\overline{E}^c = E^c^\circ$
+ \\
+ \\Prove $\overline{E^c} = E^\circ^c$
+\\ $\Rightarrow$ $\overline{E^c}$ is closed. Let F be defined as $\overline{E^c}^c$, which is open. 
+ \\By definition of closure, $\overline{E^c} = E^c \cup E^c' \Rightarrow E^c \subset \overline{E^c}$
+ \\If we take the complement of both sides, we get $F \subset E$
+ \\Let x be and interior point of F. For some neighborhood $P \subset E \subset F$
+ \\Therefore, if x is an interior point of F, then it is an interior point of E.
+ \\Hence, $F = \overline{E^c}^c \subset E^\circ \Rightarrow \overline{E^c} \subset E^\circ^c$.
+ \\$\Leftarrow$ By definition, $E^\circ \subset E \Rightarrow E^\circ^c \subset E^c$.
+ \\We know that $E^c \subset \overline{E^c}$ by definition of closure.
+ \\Therefore $E^\circ^c \subset E^c \subset \overline{E^c} \Rightarrow E^\circ^c \subset \overline{E^c}$
+ \\Hence, $\overline{E^c} = E^\circ^c$
+\end{document}

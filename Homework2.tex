@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Real Analysis Hw 2}
+\author{ANDY LI}
+\date{January 2023}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+a) A Set B s.t $supB \leq infB$
+\\By definition of sup and inf, we know that there is no upper bound of B less than supB, and there is no lower bound of B greater than infB.
+\\Because supB is an upper bound, and infB is a lower bound, supB cannot be less than infB and vice versa.
+\\$supB \neq infB$ because they are unique.
+\\Therefore a set B such that $supB \leq infB$ does not exist.
+\\
+\\b) A bounded subset of $\mathbb{N}$ which contains infimum but not supremum.
+\\Due to the nature of natural numbers, a bounded subset of naturals are closed. This means that their least upper and lower bound (supremum and infimum) are contained in the set.
+\\
+\\c) A bounded subset of $\mathbb{Q}$ which contains its infimum but not its supremum.
+\\One example is $$y = -\frac{1}{x^2+1}$$
+
+\section*{Problem 2}
+Let A be a nonempty subset of $\mathbb{R}$ which is bounded below, and define -A to be the set of all -a, where $a \in A$. Prove: $infA = -sup(-A)$
+\\First, we have the definition of infA $$\forall a \in A : \exists x \in \mathbb{R} : x \leq a$$
+\\If we multiply -1 to both sides, we get $-x \geq -a$
+\\Therefore -x is an upper bound for -A
+\\Because -A is bounded above, by the AoC it has a supremum $s = sup(-A) \Rightarrow -a \leq s \leq -x$
+\\By flipping signs, we also have $x \leq -s \leq a \Rightarrow -s = inf(A)$
+\\Therefore $inf(A) = -s = -sup(-A)$
+
+\section*{Problem 3}
+From the density of rational numbers we have $$\forall a,b \in \mathbb{R} \exists r \in \mathbb{Q} : a < r < b$$
+\\Let a = $a/\sqrt{2}$ and b = $b/\sqrt{2}$
+\\We have $$a/\sqrt{2} < r < b/\sqrt{2}$$
+\\Therefore $$a < r\sqrt{2} < b$$
+\\We know that $r\sqrt{2}$ is a subset of irrationals
+\\Therefore irrationals are dense in $\mathbb{R}$
+
+\section*{Problem 4}
+From the one direction proof, $(\alpha)^2 < 2$ is a contradiction.
+\\Now we want to find a contradiction for $(\alpha)^2 > 2$
+\\
+\\Let us consider the set $K = \{k \in \mathbb{R} : k^2 > 2\}$
+\\Let $\alpha = infK$
+\\Let us assume $\alpha^2 > 2$
+\\We try to find an element in K smaller than $\alpha$
+\\$$(\alpha - \frac{1}{n})^2 = \alpha^2 - \frac{2\alpha}{n} + \frac{1}{n^2} > \alpha^2 - \frac{2\alpha}{n}$$ where $n \in \mathbb{N}$
+\\From AP we can choose an $n_0 \in \mathbb{N}$ small enough so that $\frac{1}{n_0} > \frac{\alpha^2-2}{2\alpha}$
+\\Therefore $\frac{2\alpha}{n_0} > \alpha^2-2$
+\\Therefore $$(\alpha - \frac{1}{n_0})^2 > \alpha^2 - \frac{2\alpha}{n_0} > \alpha^2 - (\alpha^2 - 2) = 2$$
+\\$$\Rightarrow (\alpha - \frac{1}{n_0})^2 > 2 \Rightarrow (\alpha - \frac{1}{n_0}) \in K$$
+\\Which is a contradiction because $\alpha$ is a lower bound and $(\alpha - \frac{1}{n_0}) \in K < \alpha$ 
+\\Hence $\alpha^2 > 2$ is a contradiction, thus proving both directions, so $$\exists \alpha \in \mathbb{R} : \alpha^2 = 2$$
+
+\section*{Problem 5}
+Let $\lim_{x \to \infty} a_n = L$ and $\lim_{x \to \infty} a_n = M$
+\\$|a_n - L| < \epsilon$ for $n \geq n_1$ and $|a_n - M| < \epsilon$ for $n \geq n_2$
+\\Then let $\epsilon = \frac{|L - M|}{3}$  greater than 0 because we assume $L \neq M$
+\\We can take $n_0 > Max(n_1, n_2)$
+\\Therefore $|L - M| = |L - a_n + a_n - M| \leq |L - a_n| + |a_n - M|$ by the triangle rule
+\\We have $|L - a_n| + |M - a_n| < \epsilon + \epsilon = 2\epsilon = \frac{2\epsilon}{3} \Rightarrow |L-M| < \frac{2\epsilon}{3}$ which is a contradiction.
+\\Hence, the assumption that $|L - M| \neq 0$ is false which therefore means that if a sequence converges to a limit, that limit is unique.
+
+\end{document}

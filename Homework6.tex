@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Real Analysis Homework 6}
+\author{ANDY LI}
+\date{February 2023}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+a) Let $(a_n)$ be bounded and monotonically increasing.
+\\By the Axiom of Completeness, there exists a supremum $supA$.
+\\By definition of supremum, there exists an $\epsilon$ s.t $supA - \epsilon \in (a_n)$
+\\Hence for some $a_n \geq a_N \geq supA$
+\\We have $$supA - \epsilon < a_N \leq a_n < supA + \epsilon$$
+\\Hence $|a_n - supA| < \epsilon$ and therefore $a_n$ converges.
+\\
+\\b) We know from the MCT proven above that monotone bounded sequences converge.
+\\Let $s = \sum_{n=1}^{\infty} a_n$ where $a_n$ is nonnegative.
+\\$\Rightarrow$ Let the series converge.
+\\By the Divergence test, the sequence of partial sums converges, and convergent sequences are bounded.
+\\$\Leftarrow$ Let the sequence of partial sums be bounded. Because the terms are nonnegative, the sequence is monotonically increasing. Hence, $$\lim_{n \to \infty} \sum_{n=1}^{\infty} a_n$$ converges.
+
+\section*{Problem 2}
+a) Let L, and K be nonempty and compact. This means every sequence in L, K has a convergent subsequence.
+\\Let $(x_n) \in L$ and $(y_n) \in K$ be two sequences in L and K respectively.
+\\Then there are convergent subsequences $$(x_{n_k}) \to x$$ $$(y_{n_k}) \to y$$
+\\Let $(z_n) = (x_n) - (y_n)$
+\\Then subsequences $$z_{n_k} = x_{n_k} - y_{n_k} \to x - y \in L - K$$
+\\Hence by definition of compactness, L - K is compact because all of its sequences have convergent subsequences.
+\\
+\\b) $d(L,K) := \inf\{|x-y|:x \in L, y \in K\}$
+\\Let L and K be disjoint, nonempty, and compact sets
+\\By definition of compact sets, L, and K are closed $\Rightarrow \bar{L} = L$, $\bar{K} = K$.
+\\Because the sets are disjoint, $x \in L \neq y \in K$.
+\\Let $x < y$ WLOG. We have $x-y < 0$ and $y - x > 0 \Rightarrow |x-y| > 0$. Hence, all $|x-y| > 0$ because $x \neq y$. Therefore, $d(L, K) > 0$.
+\\From part a, we found that $L - K$ is compact $\Rightarrow$ it is closed and bounded. Hence, by AoC, there exists an infimum in $L - k$.
+\\Because the set is closed, the infimum is contained within the set, so there exists $x_0 \in L$ and $y_0 \in K$ s.t $|x_0 - y_0|$ is the infimum of $L - K$.
+\\
+\\c) We assume L and K are disjoint and closed but not compact $\Rightarrow$ L and K are unbounded. Without boundedness, the AoC does not hold, and the infimum may not be in the set. With our definition of the distance function, we use infimum to calculate distance, so $inf|x_0 - y_0| \geq 0$. One example of this is when L is the set $\frac{1}{x}$ and K is $\{0\}$
+\\$\inf L = 0$ and $\inf K = 0$
+
+\section*{Problem 3}
+We recall the Ternary Cantor set where the middle third is taken out through each iteration. Each iteration generates $2^n$ closed intervals of size $\frac{1}{3^n}$
+\\Because each closed interval is disjoint, the length function defined as the sum of individual disjoint closed interval lengths gives a value of $$L(C_n) = \frac{2^n}{3^n}$$
+\\Hence, $$\lim_{n \to \infty} L(C) = 0$$
+\\Conceptually, this makes sense because as more and more thirds are taken out of the set, only the endpoints will be left. And as a given, endpoints have length 0, so the sum of all the lengths of the endpoints would still be 0.
+\end{document}

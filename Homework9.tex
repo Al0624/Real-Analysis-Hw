@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{Real Analysis Homework 9}
+\author{ANDY LI}
+\date{March 2023}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+a) The Lipschitz function can be rewritten as $$|f(x) - f(y)| \leq M|x - y|$$
+\\Let $\epsilon > 0$, we can choose $\delta = \frac{\epsilon}{M}$ s.t $|x - y| < \delta \Rightarrow |f(x)-f(y)| \leq M|x - y| < M\delta = M\frac{\epsilon}{M} = \epsilon$
+\\Hence, f is continuous if it follows the Lipschitz condition.
+\\
+\\b) Suppose $f(x) = \sqrt{x}$ on the closed interval $[0, 1]$ and $y = 0$.
+\\Because we defined f on a closed interval, it is compact and is therefore uniformly continuous.
+\\Then by following the Lipschitz condition.
+\\We have $$|\frac{f(x) - f(y)}{x-y}| = |\frac{\sqrt{x}}{x}| = |\frac{1}{\sqrt{x}}|$$
+\\We see that the Lipschitz is not continuous as $x \to 0$.
+\\Hence, all uniformly continuous functions are not Lipschitz.
+
+\section*{Problem 2}
+\\Let $f(x) = \frac{1}{x^2}$
+\\Then $|f(x) - f(y)| = |\frac{1}{x^2} - \frac{1}{y^2}| = |\frac{y^2 - x^2}{x^2y^2}|$
+\\This can be simplified into $$|x - y|\frac{x + y}{x^2y^2} = |x - y|(\frac{1}{x^2y} + \frac{1}{xy^2})$$
+\\The upper bound for $\frac{1}{x^2}$ in the interval $[1, \infty)$ is at $x = 1 \Rightarrow \frac{1}{x^2} = 1$ and same for $\frac{1}{y^2}$.
+\\Therefore, in the interval $[1, \infty)$, $|f(x) - f(y)| \leq (1+1)|x - y| = 2|x - y|$
+\\If we take $\epsilon > 0$ and set $\epsilon = 2\delta$, then $$\forall \epsilon > 0 : \exists \delta > 0 : |x - y| < \delta \Rightarrow 2|x - y| < 2\delta = 2\frac{\epsilon}{2} = \epsilon$$
+
+\\If we let the interval be $(0, 1]$, then x and y can get arbitrarily close to 0.
+\\By the epsilon delta definition, Let $\epsilon > 0$ $$\forall \epsilon > 0 : \exists \delta > 0 : |x - y| < \delta \Rightarrow |\frac{1}{x^2} - \frac{1}{y^2}| < \epsilon$$
+\\Suppose $\delta > 0$ Let $x = y + \delta$
+$|y + \frac{\delta}{2} - y| < \delta$ is satisfied.
+\\However, $|y + \delta/2 -y||\frac{1}{(y + \delta/2)y^2} + \frac{1}{(y+\delta/2)^2y}| \to \infty$ as $y \to 0$ and $|f(x) - f(y)| < \epsilon$ is not satisfied.
+\\Hence, by the epsilon delta definition, f is not uniformly continuous.
+
+\section*{Problem 3}
+We have that $g^{-1}(B) = \{x \in \mathbb{R} : g(x) \in B\}$
+\\$\Rightarrow$ Let $g(A) \subseteq B \Rightarrow A \subseteq g^{-1}(g(A)) \subseteq g^{-1}(B)$
+\\$\Leftarrow$ Let $A \subseteq g^{-1}(B) \Rightarrow g(A) \subseteq g(g^{-1}(B)) \Rightarrow B$
+\\Hence, both ways are proven and $$g(A) \subseteq B \iff A \subseteq g^{-1}(B)$$
+\\Next, let $x \in \mathbb{R}$ s.t there exists $V_\delta(x) \subseteq g^{-1}(V_\epsilon(x))$ because $A \subseteq g^{-1}(V_\epsilon(x))$ is open.
+\\Hence, from the proof above, we know that $g(V_\delta(x)) \subseteq V_\epsilon(x)$
+\\Since O is open, there exists a $V_\epsilon(g(x)) \subseteq O$ and there exists $V_\delta(g(x)) \subseteq V_\epsilon(g(x))$
+\\Hence, $V_\delta(x) \subseteq g^{-1}(O)$
+
+\section*{Problem 4}
+Let $g(x) = f(x) - x$ where $f(x): [0, 1] \to [0, 1]$ and continuous.
+\\We know $g(x)$ is also continuous.
+\\We know that $f(0) \geq 0 \Rightarrow g(0) = f(0) - 0 = f(0) \geq 0$
+\\We also know that $f(1) \leq 1 \Rightarrow g(1) = f(1) - 1 \leq 0$
+\\Hence, we get the following inequality $$g(1) \leq 0 \leq g(0)$$
+By the Intermediate Value Theorem, we know that there exists an $x_0 \in [0, 1]$ s.t $g(x_0) = 0$ which means that $f(x_0) = g(x_0) + x_0 = 0 + x_0 = x_0$
+\\Hence, by definition, $x_0$ is a fixed point of f.
+\end{document}

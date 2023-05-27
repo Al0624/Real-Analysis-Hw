@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{Real Analysis Homework 11}
+\author{ANDY LI}
+\date{April 2023}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+a) Let f be bounded by $[a, b] \Rightarrow \mathbb{R}$ and P be an arbitrary partition of $[a, b]$.
+\\Let $U(f) < L(f, P)$, then by definition:
+$$U(f) = \inf\{U(f, P) : P \in \mathcal{P}\}$$
+\\Hence, there exists some partition $P_1$ s.t $$U(f, P_1) < L(f, P)$$
+\\Which is a contradiction to 7.2.4 in Abbott.
+\\
+\\b) Let $U(f) < L(f)$, then by definition, there exists a partition P s.t $$U(f) < L(f, P)$$ Which similarly to part a, also contradicts theorem 7.2.4 in Abbott.
+
+\section*{Problem 2}
+Let f, g be integrable.
+\\Let P be an arbitrary partition of $[a, b]$ defined as $$P = \{a = x_0 < x_1 < ... < x_n = b\}$$
+\\Let $M_k = \sup\{f(x)+g(x) : x \in [x_{k-1}, x_k]\}$,
+\\$M_{k,f} = \sup\{f(x) : x \in [x_{k-1}, x_k]\}$
+\\$M_{k,g} = \sup\{g(x) : x \in [x_{k-1}, x_k]\}$
+\\Then, by definition of supremum, $f(x) + g(x) \leq M_{k,f} + M_{k, g}$, and by definition, $$M_k \leq M_{k,f} + M_{k, g}$$
+\\Because P is arbitrary, we then know that $$U(f + g, P) = \sum_{k=1}^{n} M_k(x_k - x_{k-1})$$ $$\leq \sum_{k=1}^{n}(M_{k,f} + M_{k,g})(x_k - x_{k-1}) = \sum_{k=1}^n M_{k,f}(x_k - x_{k-1}) + \sum_{k=1}^n M_{k,g}(x_k - x_{k-1})$$
+$$= U(f, P) + U(g, P)$$
+\\Hence, $U(f + g, P) \leq U(f, P) + U(g, P)$
+\\
+\\Let $f(x) = x$, and $g(x) = -x$
+\\We know that $f + g = 0 \Rightarrow \inf\{(f + g)(x) : x \in [x_{k-1}, x_k]\}$
+\\$\inf\{f(x) : x \in [x_{k - 1}, x_k]\} = x_{k - 1}$
+\\$\inf\{g(x) : x \in [x_{k - 1}, x_k]\} = -x_k$
+\\Let $P = {x, \frac{x + y}{2}, y}$
+\\Then $U(f) = x + \frac{x + y}{2}$, and $U(g) = -\frac{x + y}{2} - y$
+\\Hence, $U(f) + U(g) = x + \frac{x + y}{2} -\frac{x+y}{2} - y = x - y$,
+\\and $U(f) + U(g) = x - y < 0 = U(f + g)$
+\\The inequality is strict in this example.
+\\
+\\For Lower sums, $$L(f + g, P) \geq L(f, P) + L(g, P)$$
+\\
+\\b) From part a, we know that $U(f + g, P) \leq U(f, P) + U(g, P)$
+
+\section*{Problem 3}
+$f_n(x) = \frac{nx}{1+nx^2}$
+\\
+\\a) Pointwise limit: $\lim_{x \to \infty}f_n(x) = \lim_{x \to \infty}\frac{x}{\frac{1}{n} + x^2} = \frac{1}{x}$
+\\
+\\b) $|f_n(x) - f(x)| = |\frac{nx}{1+nx^2} - \frac{1}{x}| = |\frac{1}{x(1+nx^2)}|$
+\\Let $x_n = \frac{1}{n} \Rightarrow |f_(x_n) - f(x_n)| = \frac{1}{\frac{n}{2}} = \frac{n}{2}$
+\\Because $n \geq 1$, $|f_n(x) - f(x)| \geq \frac{1}{2}$.
+\\Hence, f is not uniformly continuous on $(0, \infty)$ because $\epsilon > \frac{1}{2}$.
+\\
+\\c) Using the same process as part b, we can choose $x_n = \frac{1}{n}$ and $|f_n(x_n) - f(x_n)| \geq \frac{1}{2}$.
+\\Hence, f is not uniformly continuous on $(0, 1)$.
+\\
+\\d) $x \in (1, \infty)$
+\\$|f_n(x) - f(x)| = \frac{1}{x(1+nx^2)} < \frac{1}{n}$
+\\Hence, for all $\epsilon > 0$, by setting $N > \frac{1}{\epsilon} \Rightarrow \forall n \geq N : |f_n(x) - f(x)| \leq \frac{1}{N} < \epsilon$
+\\Hence, f is uniformly continuous on $(1, \infty)$.
+
+\section*{Problem 4}
+Let f be uniformly continuous on $\mathbb{R}$, and $f_n(x) = f(x + \frac{1}{n})$.
+\\Let $\epsilon > 0$. We start with $$\forall \epsilon > 0 : \exists \delta > 0 : |x - y| < \delta \Rightarrow |f(x) - f(y)| < \epsilon$$
+\\If we set $N > \frac{1}{\delta}$,  $n \geq N$
+$$|f(x) - f_n(x)| = |f(x) - f(x + \frac{1}{n})| < \epsilon$$
+\\Hence, $f_n \to f$ and uniform.
+\\
+\\Let $f(x) = x^2$.
+\\We have that $$|f(x) - f_n(x)| = |x^2 - (x + \frac{1}{n})^2| = |\frac{2x}{n} + \frac{1}{n^2}|$$
+\\Hence, as x grows larger, $|f(x)-f_n(x)|$ grows larger and larger. Therefore, $f_n$ is not uniformly continuous.
+\end{document}

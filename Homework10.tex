@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{Real Analysis Homework 10}
+\author{ANDY LI}
+\date{April 2023}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+We know that $\mathbb{Q}$ is dense in $\mathbb{R}$.
+\\Therefore, there exists a sequence $(q_n)_{n = 1}^\infty \in \mathbb{Q} \to r \in \mathbb{R}$
+\\Hence, $f(r) = f(\lim_{n \to \infty}q_n) = \lim_{n \to \infty}f(q_n) = \lim_{n \to \infty}0 = 0$    
+
+\section*{Problem 2}
+Let $\epsilon > 0$ and $x \in [a, b]$.
+\\Next, let $L_1 \in (f(a), f(x)) \CAP (f(x) - \epsilon, f(x))$
+\\From the Intermediate Value Property, we can choose $c_1 \in (a, x)$ s.t $f(c_1) = L_1$
+\\Hence, $|f(x) - f(c_1)| < \epsilon$
+\\We have $L_2 \in (f(x), f(b)) \CAP (f(x), f(x) + \epsilon)$
+\\Similarly, we can choose $c_2 \ in (x, b)$ s.t $f(c_2) = L_2$
+\\Hence, $|f(c_2) - f(x)| < \epsilon$
+\\We know that f is monotonically increasing, we can choose $c_1' \in (c_1, x)$ and $c_2' \in (x, c_2)$ s.t $f(x) - f(c_1') < \epsilon$ and $f(c_2') - f(x) < \epsilon$
+\\We can then choose $y \in (c_1, c_2)$ s.t $|f(x) - f(y)| < \epsilon$
+\\And $\delta = \min\{x - c_1, c_2 - x\}$
+\\Hence, by definition, f is continuous on $[a, b]$
+
+\section*{Problem 3}
+a) for f to be continuous at 0, $\lim_{x \to 0} f_a(x) = 0$
+\\Hence a can only take non-zero positive values.
+\\If $x < 0$, then there is a vertical asymptote and is therefore discontinuous at 0.
+\\if $x = 0$, then the limit as x approaches 0 is 1 which causes a jump discontinuity from 0 to 1.
+\\
+\\b) For f to be differentiable at 0, the first derivative must approach 0 as x approaches 0.
+\\We can use $\lim_{x \to 0^+}\frac{f(x) - f(0)}{x - 0} = 0$
+\\This simplifies into $\lim_{x \to 0^+}\frac{x^a}{x} = \lim_{x \to 0^+} x^{a - 1} = 0$
+\\Hence, $a > 1$ by the same logic as part a.
+\\
+\\c) For f to be twice differentiable, the second derivative must approach 0 as x approaches 0.
+\\We can take the derivative of the first derivative to find the second derivative. $\frac{d}{dx}ax^{a-1} = a(a-1)x^{a-2}$
+\\Hence, for the second derivative to be 0 at $x = 0$, $a > 2$
+
+\section*{Problem 4}
+Suppose f, g are continuous and $f(a) = g(a) = 0$ and their derivatives at a are not 0.
+We want to show that $\lim_{x \to a} \frac{f'(x)}{g'(x)} = L$
+$\epsilon > 0$ $\delta > 0 : |\frac{f'(x)}{g'(x)} - L| < \epsilon$
+\\Let $x \in (a, a+\delta)$ so that by using the generalized MVT within interval $(a, x)$ we get that there exists some c s.t $$\frac{f(x) - f(a)}{g(x)-g(a)} = \frac{f'(c)}{g'(c)}$$
+\\Let $f(a) = g(a) = 0$, then if we subtract L from both sides, we get $\frac{f(x)}{g(x)} - L = \frac{f'(c)}{g'(c)} - L$
+$$\Rightarrow |\frac{f(x)}{g(x)} - L| < \epsilon$$
+\\By repeating the process with the interval $(a - \delta, a)$ we prove both sides.
+
+\end{document}

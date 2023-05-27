@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Real Analysis Homework 5}
+\author{ANDY LI}
+\date{February 2023}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+$$\sum_{n=2}^{\infty} \frac{1}{n(logn)^p}$$
+\\We notice that the term in the sum is non-negative monotonically decreasing for n = 2 and onward.
+\\By the Cauchy Condensation Test, if we show that $2^nf(2^n)$ diverges then $f(n)$ diverges as well.
+\\For p = 1,
+$$2^nf(2^n) = \frac{2^n}{2^nlog(2^n)} = \frac{1}{nlog2}$$ Which diverges because it is a multiple of the harmonic series which diverges.
+\\Hence, for p = 1, the series diverges.
+\\
+\\Now we check for $p > 1$.
+\\We take the series to be $$\sum_{n=2}^{\infty} \frac{1}{n(logn)^2}$$
+\\Once again, by using the Cauchy Condensation Test, we check to see whether $$\sum_{n=2}^{\infty} \frac{2^n}{2^n(log2^n)^2} = \sum_{n=2}^{\infty} \frac{1}{n^2log2}$$ converges or diverges.
+\\We know from previous examples that $\sum\frac{1}{n^2}$ is a convergent series. Thus, $\sum\frac{1}{n^2log2}$ converges as well.
+\\Therefore, $$\sum_{n=2}^{\infty} \frac{1}{n(logn)^2}$$ converges, and for any power $p > 1$ the series will converge. This is because as p increases, the term gets smaller. Hence, $\sum_{n=2}^{\infty} \frac{1}{n(logn)^2}$ converges, and any series smaller will also converge.
+
+\section*{Problem 2}
+a) Let $$\alpha = \lim_{n \to \infty} \sup|a_n|^\frac{1}{n}$$
+\\By definition of supremum, we have:$$\alpha = \lim_{N \to \infty} \sup\{|a_n|^\frac{1}{n} | n > N\}$$
+\\And with the epsilon limit definition, we have: $$|\sup\{|a_n|^\frac{1}{n}|n > N \} - \alpha| < \epsilon \Rightarrow \sup\{|a_n|^\frac{1}{n}| n > N \} < \alpha + \epsilon$$
+\\Hence for $n > N$, $$\sum_{n=N+1}^{\infty} |a_n|^\frac{1}{n} \leq \sum_{n=N+1}^{\infty} \alpha + \epsilon \Rightarrow \sum_{n=N+1}^{\infty} |a_n| \leq \sum_{n=N+1}^{\infty} (\alpha + \epsilon)^n$$
+\\Hence when $$\alpha < 1 \Rightarrow \alpha + \epsilon < 1 \Rightarrow \sum_{n=N+1}^\infty |a_n|$$ converges by the comparison test with the geometric series with $(\alpha + \epsilon) < 1$.
+\\Hence: $$\sum_{n=1}^{\infty} |a_n| = \sum_{n=1}^{N} |a_n| + \sum_{n=N+1}^{\infty} |a_n|$$
+\\The left term converges because it has a finite amount of terms, and the right side converges, Hence, the series converges absolutely.
+\\
+\\b) $\alpha > 1$: The sequence has a subsequence $(s_{n_k}) \to \lim_{n \to \infty} \sup s_n = \alpha > 1$
+\\Hence, for $k > K$, we have $$|a_{n_k}|^\frac{1}{n_k} > 1 \Rightarrow |a_{n_k}| > 1$$
+\\For $a_n \to 0$, we must have the subsequence $a_{n_k} \to 0$ which is contradicted by $|a_{n_k}| > 1$.
+\\Hence, when $\alpha > 1$, then the series diverges.
+
+\section*{Problem 3}
+ The intersection of the Ternery Cantor set is non-empty.
+ \\Let $E_0 = [0, 1]$.
+ \\For each iteration n, and $k := [0, ... ,3^n - 1] $, the middle third is removed. The part removed can be denoted as the open interval: $$(\frac{3k+1}{3^{n+1}}, \frac{3k+2}{3^{n+1}})$$ which leaves the closed interval $$[\frac{3k}{3^{n+1}}, \frac{3k+3}{3^{n+1}}]$$
+ \\We notice that with each iteration n, the previous n-1 iteration's closed end points are included as endpoints in the nth iteration.
+ \\Hence, $$\cap_{n=0}^{\infty} E_n$$ is non-empty because it contains endpoints of the previous iteration. For all n, $[0, 1]$ is included in the intersection.
+
+ \section*{Problem 4}
+ The closure of a set A is defined as $$A \cup \{A'\}$$ With A' being a set of all limit points of A.
+ $$\overline{A \cup B} = \overline{A} \cup \overline{B}$$
+ \\We have $$\overline{A \cup B} = (A \cup B) \cup {(A \cup B)'}$$
+ \\Let $x \in (A \cup B)'$, and assume $x \not \in A'$ and $x \not \in B'$.
+ \\This means that there are epsilon neighborhoods P, Q s.t P does not intersect A or intersects A at point x, and Q does not intersect B or intersects B at point x.
+ \\We have $$(P \cap Q) \cap (A \cup B) \Rightarrow (P \cap Q \cap A) \cup (P \cap Q \cap B)$$
+ \\
+ \\$(A \cup B)' = A' \cup B'$
+ \\Hence: $$\overline{A \cup B} = (A \cup B) \cup A' \cup B' = (A \cup A') \cup (B \cup B') = \overline{A} \cup \overline{B}$$
+
+ \section*{Problem 5}
+ a) $\Rightarrow$ Let E be a closed set. The definition of closure: $\overline{E} = E \cup E'$
+ \\From the definition, a closed set contains all of its limit points. 
+ \\Hence $E \cup E' = E \Rightarrow \overline{E} = E$
+ \\$\Leftarrow$ Let $\overline{E} = E \Rightarrow E = E \cup E'$. This means that $E' \subseteq E$ which means that E contains all of its limit points. Hence, by definition E is a closed set.
+ \\Therefore E is a closed set if and only if $E = \overline{E}$
+\\
+ \\$\Rightarrow$ Let E be an open set. By definition, $\forall x \in E$ x is an interior point.
+ \\This means that $E \subseteq E^\circ$
+ \\And by definition $E^\circ$ is always open, hence if E is an open set, $E^\circ \subseteq E$
+ \\Therefore $E = E^\circ$ when E is an open set.
+ \\$\Leftarrow$ Let $E = E^\circ$, by definition, interior sets are open. Hence, if $E = E^\circ$ which is open, E is an open set.
+ \\Therefore E is an open set if and only if $E = E^\circ$
+ \\
+ \\b)$\Rightarrow$ $\overline{E^c}$ is closed. Let F be defined as $\overline{E^c}^c$, which is open. 
+ \\By definition of closure, $\overline{E^c} = E^c \cup E^c' \Rightarrow E^c \subset \overline{E^c}$
+ \\If we take the complement of both sides, we get $F \subset E$
+ \\Let x be and interior point of F. For some neighborhood $P \subset E \subset F$
+ \\Therefore, if x is an interior point of F, then it is an interior point of E.
+ \\Hence, $F = \overline{E^c}^c \subset E^\circ \Rightarrow \overline{E^c} \subset E^\circ^c$.
+ \\$\Leftarrow$ By definition, $E^\circ \subset E \Rightarrow E^\circ^c \subset E^c$.
+ \\We know that $E^c \subset \overline{E^c}$ by definition of closure.
+ \\Therefore $E^\circ^c \subset E^c \subset \overline{E^c} \Rightarrow E^\circ^c \subset \overline{E^c}$
+ \\Hence, $\overline{E^c} = E^\circ^c$
+\end{document}

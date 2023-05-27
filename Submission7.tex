@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Real Analysis Submission 7}
+\author{ANDY LI}
+\date{March 2023}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+i) Suppose f(x) tends to L as x approaches some a. Using the epsilon delta definition: Let $\epsilon > 0$, then there exists $\delta > 0$ s.t $|x - a| < \delta \Rightarrow |f(x) - L| < \frac{\epsilon}{|k|}$.
+\\We have $|kf(x) - kL| = |k||f(x)-L| < |k|\frac{\epsilon}{|k|} = \epsilon$
+\\Hence i) is proven.
+\\
+\\ii) Suppose functions $f(x)$ and $g(x)$ tend to L and M respectively as x approaches some a, and let $(x_n)$ be a sequence that approaches some a.
+\\Let $\epsilon > 0$, s.t $|f(x_n) - L| < \frac{\epsilon}{2}$ and $|g(x_n) - M| < \frac{\epsilon}{2}$ for $n > N \in \mathbb{N}$
+\\Hence by triangle rule $$|f(x_n) - L + g(x_n) - M| < |f(x_n)-L| + |g(x_n) - M| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$$
+\\Hence ii) is proven.
+\\
+\\iii) Suppose $f(x)$ tends to L and $g(x)$ tends to M as x approaches some a.
+\\Let $\epsilon > 0$, there exists $\delta > 0$ s.t $|x - a| < \delta \Rightarrow |g(x) - M| < 1 \Rightarrow |g(x)| < |M| + 1$
+\\Let $$|f(x) - L| < \frac{\epsilon}{2(|M|+1)}$$ $$|g(x)-M| < \frac{\epsilon}{2(|L|+1)}$$
+\\We then have: $|f(x)g(x) - LM| = |f(x)g(x) - Lg(x) + Lg(x) - LM| =$ \\$ |(f(x) - L)g(x) + L(g(x)-M)|$
+$$\leq \frac{\epsilon}{2(|M|+1)}(|M|+1) + |L|\frac{\epsilon}{2(|L|+1)} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$$
+\\Hence iii) is proven.
+\\
+\\iv) Suppose $g(x)$ tends to M as x approaches to some a.
+\\We want to show that there exists $\delta > 0$ s.t $|x - a| < \delta \Rightarrow |\frac{1}{g(x)} - \frac{1}{g(a)}| < \epsilon$
+\\We see that the second part can be written as $$|\frac{g(x)-g(a)}{g(x)g(a)}| < \epsilon$$
+\\We know that $\frac{1}{|g(x)|} \leq \frac{1}{|M|}$
+\\We can then choose $\delta = |M||g(a)|\epsilon \Rightarrow$ $$|\frac{1}{g(x)} - \frac{1}{g(a)}| \leq \frac{1}{|Mg(a)|}|g(x)-g(a)| < \frac{|M||g(a)|\epsilon}{|Mg(a)|} = \epsilon$$
+
+\\Then by using part iii), $$|f(x) * \frac{1}{g(x)} - \frac{L}{M}| < \epsilon$$
+\\Hence, iv) is proven.
+\section*{Problem 2}
+a) $\lim_{x \to 2} (3x+4) = 10$
+\\By definition, $$\forall \epsilon > 0 : \exists \delta > 0 : |x - 2| < \delta \Rightarrow |3x + 4 - 10| < \epsilon$$
+\\We can take $|3x + 4 - 10| = |3x - 6| = 3|x-2|$
+\\Let $$\epsilon = 3\delta \Rightarrow 3|x -2| < 3\delta = 3\frac{\epsilon}{3} = \epsilon$$
+\\
+\\b) By definition: $$\forall \epsilon > 0 : \exists \delta > 0 : |x| < \delta \Rightarrow |x^3| < \epsilon$$
+\\Let $\epsilon = \delta^{\frac{1}{3}} \Rightarrow |x^3| < \delta^3 = \epsilon^{3\frac{1}{3}} = \epsilon$
+\\
+\\c) By definition: $$\forall \epsilon > 0 : \exists \delta > 0 : |x - 2| < \delta \Rightarrow |x^2 + x - 1 - 5| < \epsilon$$
+\\Let $\epsilon = |x+3|\delta \Rightarrow |x^2 + x -6| = |(x-2)(x+3)| < |x+3|\delta = |x+3|\frac{\epsilon}{|x+3|} = \epsilon$
+\\
+\\d) By definition: $$\forall \epsilon > 0 : \exisits \delta > 0 : |x-3| < \delta \Rightarrow |\frac{1}{x} - \frac{1}{3}| < \epsilon$$
+\\Let $\epsilon = \frac{\delta}{|3x|} \Rightarrow |\frac{1}{x} - \frac{1}{3}| = |\frac{3-x}{3x}| < \frac{\delta}{|3x|} = \frac{|3x|\epsilon}{|3x|} = \epsilon$
+
+\section*{Problem 4}
+$x \in S \subseteq \mathbb{R}$ is an isolated point of S.
+\\By definition: $\exists \delta_1 > 0 : (x- \delta_1, x+\delta_1) \cap S = \{x\})$
+\\For a small enough $\delta_2 > 0$, if $x = c$, $$|x - c| < \delta_2 \Rightarrow 0 = |f(x) - L| < \epsilon$$ for all $\epsilon > 0$
+\\Let $\delta = \min(\delta_1, \delta_2)$. By definition of an isolated point, if x is the only element within the delta neighborhood, then $|x - c| < \delta$ iff $c = x$.
+\\When $c = x$, $|x - c| = 0 < \delta \Rightarrow |f(x) - L| = 0 < \epsilon$.
+\\Hence if we set $\epsilon = \delta$, $|f(x) - L| < \epsilon$
+\end{document}

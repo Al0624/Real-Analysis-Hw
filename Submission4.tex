@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Real Analysis Submission 4}
+\author{ANDY LI}
+\date{February 2023}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+a) Let $a_n$ be a bounded sequence.
+\\Prove sequence $(y_n)$ defined as $y_n := sup\{a_k: k \geq n\}$ converges.
+\\Since $a_n$ is bounded, by definition we have: $$|a_n| \leq M$$ for some $n \geq N \in \mathbb{N}$
+\\Hence by definition of infimum and supremum, $$-M \leq inf\{a_k : k \geq n\} \leq sup\{a_k : k \geq n\} \leq M$$
+\\$y_n = sup\{a_k : k \geq n\} \leq M$
+\\To show that $y_n$ is decreasing, we take $$y_{n+1} = sup\{a_k : k \geq n+1\}$$
+\\Hence, because $$\{a_k : k \geq n+1\} \subseteq \{a_k : k \geq n\} \Rightarrow y_{n+1} = sup\{ a_k : k \geq n+1\} \leq sup\{a_k : k \geq n\} = y_n$$
+\\Therefore $y_n$ is a decreasing sequence and because it is bounded and decreasing, $y_n$ converges.
+\\
+\\b) Let sequence $x_n = inf\{a_k : k \geq n\}$ so that the limit of the infimum is $\lim_{n \to \infty} inf(a_n) = \lim_{n \to \infty} x_n$
+\\Because $a_n$ is bounded, the infimum exists, and because of the definition of infimum, the infimum of a subset is greater than or equal to the infimum of the set. Therefore, the infimum is increasing which means that the sequence converges by MCT.
+\\
+\\c) By definition of infimum and supremum, $x_n \leq y_n$ for all n.
+\\Let $\lim_{n \to \infty} x_n = x$ and $\lim_{n \to \infty} y_n = y$
+\\Suppose $x > y$, then for $\epsilon > 0$, $x - \epsilon < x_n < x + \epsilon$ for $n \geq N$ and same for $y_n$
+\\Let $\delta = x - y$ and let $\epsilon = \frac{\delta}{2}$
+\\We then have $$y_n - \frac{\delta}{2} < y_n < y + \frac{\delta}{2} = x - \frac{\delta}{2} < x_n < x + \frac{\delta}{2}$$
+\\From which we see that $y_n < x_n$ which contradicts the earlier statement that $x_n < y_n$
+\\Hence, $\lim_{n \to \infty} x_n \leq \lim_{n \to \infty} y_n$
+\\
+\\d) Let $\lim_{n \to \infty} sup = \lim_{n \to \infty} inf = L$
+\\By definition of infimum and supremum, $x_n \leq a_n \leq y_n$
+\\Hence, by the Squeeze theorem, because $\lim_{n \to \infty} sup = \lim_{n \to \infty} inf = L$, $ \lim_{n \to \infty} a_n = L$, and therefore does exist.
+\\
+\\To prove the other direction, suppose $$\lim_{n \to \infty} a_n = b$$ and let $\epsilon = \frac{b-a}{2}$
+\\We know $\lim inf(a_n) = a$ and $\lim sup(a_n) = b$ exist such that $a \neq b$.
+\\We know that both $\forall n \geq N : sup(a_n)$, $inf(a_n) \in (a_n)$
+\\Thus we have $$\forall n \geq N : |(a_n) - L| < \epsilon$$
+\\However, because of our assumption that $a \neq b$, one of the distances between a or b and L is greater than $\epsilon$ which is a contradiction.
+\\Thus the assumption that $a \neq b$ is contradicted so $a = b$
+
+\section*{Problem 4}
+$s_n = \sum_{k=1}^{n} \frac{1}{k}$
+\\a) $\sum_{k=1}^{2^n} \frac{1}{k} \geq 1 + \frac{n}{2}$
+\\$n = 3$ $s_n = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} = \frac{761}{280} \geq \frac{5}{2}$
+\\$n = 4$ $s_n = \frac{761}{280} + \frac{1}{9} + ... + \frac{1}{16} = 3.38 \geq \frac{6}{2}$
+$$\sum_{k=1}^{2^{n+1}} \frac{1}{k} = \sum_{k=1}^{2^{n}} \frac{1}{k} + \sum_{2^n}^{2*2^{n}} \frac{1}{k}$$
+\\We want to show that the right side term is less than $\frac{1}{2}$
+\\We can see that the sum from $2^n$ to $2^n+1$ has $2^n$ number of terms. We also know that based on the function $\frac{1}{k}$ as k gets larger, the terms get smaller.
+\\Hence if we take $\sum_{k=2^n}^{2*2^n} \geq \frac{2^n}{2*2^n} = \frac{1}{2}$ then we can confirm that $$\sum_{k=1}^{2^{n+1}} \frac{1}{k} \geq 1 + \frac{n}{2} + \frac{1}{2} = 1 + \frac{n+1}{2}$$
+\\Hence by induction, $\sum_{k=1}^{2^n} \geq 1 + \frac{n}{2}$ for all $n \geq 1$
+\\
+\\b) From the induction proof above, we saw how for each increase in n, the sum increased by a number greater than $\frac{1}{2}$. As n continues growing, we can add up more and more halves and the sum never stops growing. 
+\\Hence, by the comparison test, we see that $$\sum_{k=1}^{2^n} \frac{1}{k} \geq  \frac{n}{2} $$
+which diverges. Therefore $\lim_{n \to \infty} s_n = \infty$.
+\\This comparison of diverging series was proven in Abbot, Page 72.
+\\
+\\c) $|s_n - s_{n+1}| < \epsilon$ for some $n \geq N$
+\\This can be rewritten as $$|\sum_{k=1}^{n} \frac{1}{k} - \sum_{k=1}^{n+1} \frac{1}{k}|= \frac{1}{n+1}$$
+\\
+\\d) No $(s_n)_{n=1}^{\infty}$ is not Cauchy because it is not convergent because 
+\\Cauchy $<=>$ Convergent.
+
+\section*{Problem 5}
+Let $(a_n)_{n=1}^{\infty}$ be a monotonic decreasing sequence which converges to 0.
+\\We have $\sum_{n=1}^{\infty} (-1)^{n+1}a_n$
+\\Let the base case be: $$S_2 = a_1 - a_2 < S_1 = a_1$$
+\\By splitting up the partial sums into odds and even parts, we have: $$S_{2m+1} = \sum_{n=1}^{2m+1} (-1)^{n+1}a_n$$ and $$S_{2m} = \sum_{n=1}^{2m} (-1)^{n+1} a_n$$
+\\Let us consider $$S_{2m+1 + 1} = S_{2m+1} - a_{2m+2} < S_{2m+1}$$
+\\Since $a_n$ is decreasing, $S_{2m+2} < S_{2m+1}$
+\\For the odd indexes: $$S_{2m + 1} = S_{2m} + a_{2m + 1} > S_{2m}$$
+\\Hence, $$S_2 < S_{2m} < S_{2m+1} < S_1$$.
+\\Because $a_n$ is getting smaller monotonically, $S_{2m}$ terms are getting larger monotonically, and $S_{2m+1}$ terms are getting smaller monotonically. Hence, if we take $\epsilon = S_1 - S_2,$ $$|S_{2m+1} - S_{2m}| < \epsilon$$
+\\Therefore, the series converges.
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Real Analysis Hw 1}
+\author{ANDY LI}
+\date{January 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1}
+a) $$(A \cap B)^c = A^c \cup B^c$$
+\\Let x be an element in $$(A \cap B)^c$$
+\\Therefore $$\forall x:  x \in (A \cap B)^c \Rightarrow x \notin (A \cap B) 
+\Rightarrow (x \notin A \lor x \notin B) \Rightarrow x \in (A^c \cup B^c)$$
+\\We have $$x \in (A \cap B)^c \Rightarrow x \in (A^c \cup B^c)$$
+\\By definition of subset $$(A \cap B)^c \subset (A^c \cup B^c)$$
+\\Let y be an element in $$(A^c \cup B^c)$$
+\\Therefore $$\forall y:  y \in (A^c \cup B^c) \Rightarrow (y \notin A \wedge y \notin B) \Rightarrow y \notin (A \cap B) \Rightarrow y \in (A \cap B)^c$$
+\\By definition of subset $$(A^c \cup B^c) \subset (A \cap B)^c$$
+\\Therefore both ways are subsets so $$(A \cap B)^c = A^c \cup B^c$$
+\\b) $$(A \cup B)^c = A^c \cap B^c$$
+\\Let x be an element in $$(A \cup B)^c$$
+\\Therefore $$\forall x:  x \in (A \cup B)^c \Rightarrow x \notin (A \cup B) 
+\Rightarrow (x \notin A \wedge x \notin B) \Rightarrow x \in (A^c \cap B^c)$$
+\\We have $$x \in (A \cup B)^c \Rightarrow x \in (A^c \cap B^c)$$
+\\By definition of subset $$(A \cup B)^c \subset (A^c \cap B^c)$$
+\\Let y be an element in $$(A^c \cap B^c)$$
+\\Therefore $$\forall y:  y \in (A^c \cap B^c) \Rightarrow (y \notin A \wedge y \notin B) \Rightarrow y \notin (A \cup B) \Rightarrow y \in (A \cup B)^c$$
+\\By definition of subset $$(A^c \cap B^c) \subset (A \cup B)^c$$
+\\Therefore both ways are subsets so $$(A \cap B)^c = A^c \cup B^c$$
+\\
+\section{Problem 2}
+$$\forall x,y \in \mathbb{R} : ||x|-|y|| \leq |x-y|$$
+\\From the triangle rule we know that $$|x+y|\leq |x|+|y|$$
+\\We can assume $|x| \geq |y|$ WLOG because we can always assign x to be the greater value.
+\\
+\\A property of absolute values $$|x-y| = |y-x|$$
+\\We can write the absolute value on the left side as $$||x|-|y||$$ $$||y|-|x||$$
+\\By the triangle rule and the absolute value property we can get the following: $$|x|=|x-y+y|\leq|x-y|+|y|$$ $$|y|=|y-x+x|\leq|y-x|+|x|$$
+\\By moving terms around we get $$|x|-|y|\leq|x-y|$$ $$|y|-|x|\leq|y-x|$$
+\\Therefore using the absolute value property $$||x|-|y||\leq|x-y|$$
+
+\end{document}

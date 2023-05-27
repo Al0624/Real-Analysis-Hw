@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{Real Analysis Submission 9}
+\author{ANDY LI}
+\date{March 2023}
+\begin{document}
+\maketitle
+\section*{Problem 2}
+\\Let $f(x) = \frac{1}{x^2}$
+\\Then $|f(x) - f(y)| = |\frac{1}{x^2} - \frac{1}{y^2}| = |\frac{y^2 - x^2}{x^2y^2}|$
+\\This can be simplified into $$|x - y|\frac{x + y}{x^2y^2} = |x - y|(\frac{1}{x^2y} + \frac{1}{xy^2})$$
+\\The upper bound for $\frac{1}{x^2}$ in the interval $[1, \infty)$ is at $x = 1 \Rightarrow \frac{1}{x^2} = 1$ and same for $\frac{1}{y^2}$.
+\\Therefore, in the interval $[1, \infty)$, $|f(x) - f(y)| \leq (1+1)|x - y| = 2|x - y|$
+\\If we take $\epsilon > 0$ and set $\epsilon = 2\delta$, then $$\forall \epsilon > 0 : \exists \delta > 0 : |x - y| < \delta \Rightarrow 2|x - y| < 2\delta = 2\frac{\epsilon}{2} = \epsilon$$
+
+\\If we let the interval be $(0, 1]$, then x and y can get arbitrarily close to 0.
+\\By the epsilon delta definition, Let $\epsilon > 0$ $$\forall \epsilon > 0 : \exists \delta > 0 : |x - y| < \delta \Rightarrow |\frac{1}{x^2} - \frac{1}{y^2}| < \epsilon$$
+\\Suppose $\delta > 0$ Let $x = y + \delta$
+$|y + \frac{\delta}{2} - y| < \delta$ is satisfied.
+\\However, $|y + \delta/2 -y||\frac{1}{(y + \delta/2)y^2} + \frac{1}{(y+\delta/2)^2y}| \to \infty$ as $y \to 0$ and $|f(x) - f(y)| < \epsilon$ is not satisfied.
+\\Hence, by the epsilon delta definition, f is not uniformly continuous.
+
+\section*{Problem 4}
+Let $g(x) = f(x) - x$ where $f(x): [0, 1] \to [0, 1]$ and continuous.
+\\We know $g(x)$ is also continuous.
+\\We know that $f(0) \geq 0 \Rightarrow g(0) = f(0) - 0 = f(0) \geq 0$
+\\We also know that $f(1) \leq 1 \Rightarrow g(1) = f(1) - 1 \leq 0$
+\\Hence, we get the following inequality $$g(1) \leq 0 \leq g(0)$$
+By the Intermediate Value Theorem, we know that there exists an $x_0 \in [0, 1]$ s.t $g(x_0) = 0$ which means that $f(x_0) = g(x_0) + x_0 = 0 + x_0 = x_0$
+\\Hence, by definition, $x_0$ is a fixed point of f.
+\end{document}

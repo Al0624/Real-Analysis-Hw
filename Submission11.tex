@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{Real Analysis Submission 11}
+\author{ANDY LI}
+\date{April 2023}
+\begin{document}
+\maketitle
+
+\section*{Problem 2}
+Let f, g be integrable.
+\\Let P be an arbitrary partition of $[a, b]$ defined as $$P = \{a = x_0 < x_1 < ... < x_n = b\}$$
+\\Let $M_k = \sup\{f(x)+g(x) : x \in [x_{k-1}, x_k]\}$,
+\\$M_{k,f} = \sup\{f(x) : x \in [x_{k-1}, x_k]\}$
+\\$M_{k,g} = \sup\{g(x) : x \in [x_{k-1}, x_k]\}$
+\\Then, by definition of supremum, $f(x) + g(x) \leq M_{k,f} + M_{k, g}$, and by definition, $$M_k \leq M_{k,f} + M_{k, g}$$
+\\Because P is arbitrary, we then know that $$U(f + g, P) = \sum_{k=1}^{n} M_k(x_k - x_{k-1})$$ $$\leq \sum_{k=1}^{n}(M_{k,f} + M_{k,g})(x_k - x_{k-1}) = \sum_{k=1}^n M_{k,f}(x_k - x_{k-1}) + \sum_{k=1}^n M_{k,g}(x_k - x_{k-1})$$
+$$= U(f, P) + U(g, P)$$
+\\Hence, $U(f + g, P) \leq U(f, P) + U(g, P)$
+\\
+\\Let $f(x) = x$, and $g(x) = -x$
+\\We know that $f + g = 0 \Rightarrow \inf\{(f + g)(x) : x \in [x_{k-1}, x_k]\}$
+\\$\inf\{f(x) : x \in [x_{k - 1}, x_k]\} = x_{k - 1}$
+\\$\inf\{g(x) : x \in [x_{k - 1}, x_k]\} = -x_k$
+\\Let $P = {x, \frac{x + y}{2}, y}$
+\\Then $U(f) = x + \frac{x + y}{2}$, and $U(g) = -\frac{x + y}{2} - y$
+\\Hence, $U(f) + U(g) = x + \frac{x + y}{2} -\frac{x+y}{2} - y = x - y$,
+\\and $U(f) + U(g) = x - y < 0 = U(f + g)$
+\\The inequality is strict in this example.
+\\
+\\For Lower sums, $$L(f + g, P) \geq L(f, P) + L(g, P)$$
+\\
+\\b) From part a, we know that $U(f + g, P) \leq U(f, P) + U(g, P)$
+
+\section*{Problem 4}
+Let f be uniformly continuous on $\mathbb{R}$, and $f_n(x) = f(x + \frac{1}{n})$.
+\\Let $\epsilon > 0$. We start with $$\forall \epsilon > 0 : \exists \delta > 0 : |x - y| < \delta \Rightarrow |f(x) - f(y)| < \epsilon$$
+\\If we set $N > \frac{1}{\delta}$,  $n \geq N$
+$$|f(x) - f_n(x)| = |f(x) - f(x + \frac{1}{n})| < \epsilon$$
+\\Hence, $f_n \to f$ and uniform.
+\\
+\\Let $f(x) = x^2$.
+\\We have that $$|f(x) - f_n(x)| = |x^2 - (x + \frac{1}{n})^2| = |\frac{2x}{n} + \frac{1}{n^2}|$$
+\\Hence, as x grows larger, $|f(x)-f_n(x)|$ grows larger and larger. Therefore, $f_n$ is not uniformly continuous.
+\end{document}

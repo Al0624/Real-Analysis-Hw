@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Real Analysis Submission 2}
+\author{ANDY LI}
+\date{January 2023}
+
+\begin{document}
+
+\maketitle
+\section*{Problem 2}
+Let A be a nonempty subset of $\mathbb{R}$ which is bounded below, and define -A to be the set of all -a, where $a \in A$. Prove: $infA = -sup(-A)$
+\\First, we have the definition of infA.
+\\Let x be any lower bound: $$\forall x \in \mathbb{R} : x \leq a$$
+\\Then there is $n = infA$ so n  is the greatest lower bound. $$\exists n : \forall x : \forall a\in A : a \geq n \geq x$$
+\\Therefore by the definition of infimum, we can write the inequality: $$x \leq n \leq a$$
+\\If we multiply the inequality by -1, we get $$-a \leq -n \leq -x$$
+\\We see that -x becomes any upper bound of -a, and that -n is less than any upper bound of -A.
+\\Therefore, -n is the least upper bound of -A so $$n = infA = -(-n) = -sup(-A)$$
+\\Hence $$inf(A) = -sup(-A)$$
+
+\section*{Problem 3}
+\\Prove that the sum of an irrational and a rational is irrational.
+\\Suppose i is irrational and r is rational and $r + i = q \in \mathbb{Q}$
+\\We can subtraction r from both sides to get $q - r = i$
+\\We have that both q and r are rationals.
+\\So it can be written as $\exists n_1, n_2, m_1, m_2 \in \mathbb{R} : q - r = \frac{n_1}{m_1} - \frac{n_2}{m_2} = \frac{n_1m_2 - n_2m_1}{m_1m_2}$ which is rational. 
+\\Therefore we can conclude $\forall q,r \in \mathbb{Q} : q - r \in \mathbb{Q}$
+\\Therefore $i = q - r$ is a contradiction because we define i to be irrational and this statement shows that it is equal to a rational.
+\\Hence the sum of an irrational and a rational is irrational.
+\\
+\\Prove that multiplying a rational and an irrational gives an irrational.
+\\Suppose i is irrational and r is a non-zero rational and $ir = q \in \mathbb{Q}$
+\\By dividing r from both sides, we get $i = \frac{q}{r}$
+\\Because both q and r are rational, $\exists n_1,n_2,m_1,m_2 \in \mathbb{R} : \frac{q}{r} = \frac{\frac{n_1}{m_1}}{\frac{n_2}{m_2}} = \frac{n_1m_2}{m_1n_2} \in \mathbb{Q}$
+\\Therefore for all rationals q and r, $\frac{q}{r}$ is also rational.
+\\Therefore $i = \frac{q}{r}$ is a contradiction because we define i to be irrational and this statement shows that it is equal to a rational.
+\\Hence multiplying a rational by an irrational gives an irrational
+\\
+\\From the density of rational numbers, we have $$\forall a,b \in \mathbb{R} : a < b$$
+\\Let $a = \frac{a}{\sqrt{2}}$ and $b = \frac{b}{\sqrt{2}}$
+\\By density, we have $$\frac{a}{\sqrt{2}} < r < \frac{b}{\sqrt{2}}$$
+\\Therefore $$a < r\sqrt{2} < b$$
+\\We know from the proof above that the multiplication of a rational and irrational number is irrational. 
+\\Hence $r \in \mathbb{Q} \Rightarrow r\sqrt{2}$ is a subset of irrationals.
+\\Hence the set of irrationals is also dense in $\mathbb{R}$
+
+\section*{Problem 5}
+Suppose $\lim_{x \to \infty} a_n = L$ and $\lim_{x \to \infty} a_n = M$
+\\$|a_n - L| < \epsilon$ for $n \geq n_1$ and $|a_n - M| < \epsilon$ for $n \geq n_2$
+\\Then let $\epsilon = \frac{|L - M|}{3}$  greater than 0 because we assume $L \neq M$
+\\We can take $n_0 > Max(n_1, n_2)$
+\\Therefore $|L - M| = |L - a_n + a_n - M| \leq |L - a_n| + |a_n - M|$ by the triangle rule
+\\We have $|L - a_n| + |M - a_n| < \epsilon + \epsilon = 2\epsilon = \frac{2\epsilon}{3} \Rightarrow |L-M| < \frac{2\epsilon}{3}$ which is a contradiction.
+\\Hence, the assumption that $|L - M| \neq 0$ is false which therefore means that if a sequence converges to a limit, that limit is unique.
+\end{document}

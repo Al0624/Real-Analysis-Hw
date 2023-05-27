@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{Real Analysis Homework 8}
+\author{ANDY LI}
+\date{March 2023}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+Given $f: A \to \mathbb{R}$ and $g: B \to \mathbb{R}$ and $f(A) \subseteq B$ s.t $(g \circ f)(x) := g(f(x))$ is defined on A.
+Let $\epsilon > 0$. Since g is continuous at $f(c)$, by the epsilon delta definition of continuity, $$\forall \epsilon_1 > 0 : \exists \delta_1 > 0 : |y - f(c)| < \delta_1 \Rightarrow |g(y) - g(f(c))| < \epsilon_1$$
+\\We also assume that f is continuous at c so $$\forall \epsilon_0 > 0 : \exists \delta_0 > 0: |x - c| < \delta_0 \Rightarrow |f(x) - f(c)| < \epsilon_0$$
+Let $\epsilon_0 = \delta_1$.
+\\By combining the definitions, we get $$|x - c| < \delta_1 \Rightarrow |g(f(x)) - g(f(c))| < \epsilon$$ for $x \in A$
+\\Hence, by definition of continuity, $g \circ f$ is continuous at c.
+
+\section*{Problem 2}
+a) Prove f is continuous at 3.
+\\By definition of continuity, $$\forall \epsilon > 0 : \exists \delta > 0: |x - 3| < \delta \Rightarrow |\frac{x^2 - 9}{x-3} - 6| < \epsilon$$
+$$|x - 3| < \delta \Rightarrow |(x + 3) - 6| < \epsilon$$
+$$|x - 3| < \delta \Rightarrow |x - 3| < \epsilon$$
+\\Let $\epsilon = \delta$
+\\Then $|x - 3| < \epsilon \Rightarrow |x + 3 - 6| < \epsilon$ 
+\\Hence, f is continuous at 3.
+\\
+\\b) From part a, we prove that f is continuous at 3 by setting $\delta = \epsilon$. Hence if $\epsilon = \frac{1}{100}$, then $\delta = \frac{1}{100}$.
+\\$|f(x) - 6| < 0.01 \Rightarrow |x + 3 - 6| < 0.01 \Rightarrow |x| < 3.01$ 
+\\$|x - 3| < \delta \Rightarrow |3.01 - 3| < \delta \Rightarrow \delta = \frac{1}{100}$
+
+\section*{Problem 3}
+a) In order to prove continuity, we want to show that $\lim_{x \to a}f(x) = f(c)$.
+\\Using the epsilon delta definition, we have $$\forall \epsilon > 0 : \exists \delta > 0 : |x - a| < \delta \Rightarrow |f(x) - f(a)| < \epsilon$$
+\\Given $|f(x) - f(c)| \leq c|x - a|$, we can set $\epsilon = c\delta$
+\\Therefore, we have $$|f(x) - f(a)| \leq c|x - a| < c\delta = c\frac{1}{c}\epsilon = \epsilon$$
+\\Therefore by definition, f is continuous.
+\\
+\\b) We can write the nth recursion $f^n(y_1) = f^{n-1}(y_1) = y_n$ as $$|y_{n+1} - y_n| = |f(y_n) - f(y_{n-1}) \leq c|y_n - y_{n-1}|$$
+\\We know through induction that $$|y_{n+1} - y_n| \leq c|y_n - y_{n-1}| \leq c^2|y_{n-1} - y_{n-2}| \leq ... \leq c^n|y_1 - y_0|$$
+\\Hence, $|y_{n+1} - y_n| \leq c^n|y_1 - y_0|$
+\\We are given that $0 < c < 1$ so $$\lim_{n \to \infty} c^n|y_1 - y_0| = 0$$
+\\Hence, the sequence converges, and because the sequence converges, it is Cauchy.
+
+\section*{Problem 4}
+a) $f(x + y) = f(x) + f(y)$
+\\$f(0) = f(0) + f(0) \Rightarrow f(0) = 0$
+\\$0 = f(0) = f(x - x) = f(x) + f(-x) = f(x) - f(x) \Rightarrow f(x) = f(-x)$
+\\
+\\b) Let $k = f(1)$
+\\We know that $f(1) = f(0) + f(1)$
+\\For $n \in \mathbb{N}$, 
+\\$f(n) = \sum_{k=0}^{n-1} (f((k+1)) - f(k)) = \sum_{k=0}^{n-1} f(1) = nf(1) = kn$
+\\For $z \in \mathbb{Z}$, we need to prove the negatives because naturals show the positives. 
+\\$n \in \mathbb{Z}_- \Rightarrow f(z) = -f(-z) = -(-z)f(1) = zf(1) = kz$
+\\For $r \in \mathbb{Q} = \frac{p}{q}$
+\\$f(r) = f(\frac{p}{q}) = pf(\frac{1}{q}) = \frac{p}{q}f(1) = rf(1) = kr$
+
+\section*{Problem 5}
+a) Let both $f(x)$ and $g(x)$ be discontinuous at 0. One example is 
+\\$f(x) =$  \begin{cases} 
+      1 & x \in \mathbb{Z} \\
+      
+      0 & Otherwise 
+   \end{cases}
+\\$g(x) = 1 - f(x)$
+\\In this example, both $f(x)$ and $g(x)$ are discontinuous at 0, and $f + g = 1$ and $fg$ = 0 s.t $f + g$ and $fg$ are both constant and continuous.
+\\
+\\b) Let f be continuous at 0, and g be discontinuous at 0.
+\\Now, let $h = f + g$ and assume h is continuous at 0.
+\\Then we can rewrite $g = h - f$
+\\We know that $h - f$ is continuous because addition or subtraction of 2 continuous functions is continuous.
+\\Therefore, $g = h - f$ is continuous which is a contradiction to our assumption.
+\\Hence, h is not continuous.
+\end{document}
